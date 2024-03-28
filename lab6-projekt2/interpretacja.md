@@ -1,0 +1,1 @@
+- piorun trafia w losowy punkt, jeżeli nie trafi w żadne drzewo, wliczamy to do statystyk jako brak pożaru i % spalonych drzew = 0
