@@ -1,18 +1,20 @@
-counterOfZeros = 0
-counterOfOnes = 0
+lol = 30
 
-def fibbonaci(n):
-    global counterOfZeros, counterOfOnes
+counters = [0] * (lol+1)
 
+def fibonacci(n):
+    global counters
+    counters[n] += 1
     if n == 0:
-        counterOfZeros += 1
         return 0
     if n == 1:
-        counterOfOnes += 1
         return 1
     else:
-        return fibbonaci(n-1) + fibbonaci(n-2)
-    
-print(fibbonaci(30))
-print("0: " + str(counterOfZeros))
-print("1: " + str(counterOfOnes))
+        return fibonacci(n-1) + fibonacci(n-2)
+
+fibonacci_result = fibonacci(lol)
+
+print(f"Fibonacci od {lol}:", fibonacci_result)
+
+for i in range(len(counters)):
+    print(i, counters[i])

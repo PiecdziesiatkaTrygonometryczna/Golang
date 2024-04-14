@@ -3,13 +3,22 @@ package main
 import (
 	"fmt"
 	"math/rand"
+	"strconv"
 	"time"
 )
+
+func displayArray(arr [][]uint8) {
+	for i := range arr {
+		fmt.Println(arr[i])
+	}
+	fmt.Println()
+}
+
 
 func main() {
 	rand.Seed(time.Now().UnixNano()) 
 
-	
+
 	var n int = 10
 	arr := make([][]uint8, n)
 	for i := range arr {
@@ -27,10 +36,7 @@ func main() {
 	}
 
 
-	for i := range arr {
-		fmt.Println(arr[i])
-	}
-	fmt.Println()
+
 
 	var arrOfTrees [][]int
 	for i := range arr {
@@ -44,4 +50,18 @@ func main() {
 		}
 	}
 	fmt.Println(arrOfTrees)
+
+	i := rand.Intn(n)
+	j := rand.Intn(n)
+
+
+	arr[i][j] = 4
+	// strike := arr[i][j]
+
+
+	displayArray(arr)
+
+	istr := strconv.Itoa(i)
+	jstr := strconv.Itoa(j)
+	fmt.Println(istr + " " + jstr)
 }
