@@ -55,4 +55,4 @@ func main() {
     }
 
     fmt.Printf("Najbliższa liczba Twojej Silnej Liczbie to %d, czyli Twoja Słaba Liczba to %d.\n", counters[closest_index], closest_index)
-}
+}// moja słaba liczba to 17
