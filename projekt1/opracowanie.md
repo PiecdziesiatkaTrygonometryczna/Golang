@@ -141,3 +141,9 @@ Jak dobrze, że ludzkość nie używa rekurencji na codzień... Dla zestawienia,
 ![Wykres](plot_iterative.png)
 
 A, i Fibonacci od Mojej Silnej Liczby iteracyjnie liczy się 6.5968e+96 razy szybciej niż rekurencyjnie
+
+## Przemyślenia końcowe.
+
+Nie widzę możliwości policzenia czasu działania, ani różnicy w czasie działania pomiędzy kolejnymi wartościami `m` i `n` nawet dla małych wartości w funkcji Ackermanna, tak więc tym bardziej nie jestem w stanie znaleźć żadnej zależności, ani nawet próbować przewidywać czasu działania programu.  
+
+Funkcja Ackermanna od `(476,17)` przyjmuje wartość `(2→(20)→(474)) - 3`
