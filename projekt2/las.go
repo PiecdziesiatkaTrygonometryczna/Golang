@@ -17,8 +17,6 @@ func displayArray(arr [][]uint8) {
 
 func main() {
 	rand.Seed(time.Now().UnixNano()) 
-
-
 	var n int = 10
 	arr := make([][]uint8, n)
 	for i := range arr {
@@ -34,8 +32,6 @@ func main() {
 			count++
 		}
 	}
-
-
 
 
 	var arrOfTrees [][]int

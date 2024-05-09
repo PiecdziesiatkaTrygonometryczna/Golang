@@ -2,3 +2,8 @@ go mod init
 go run
 
 go run -p 1 main.go
+
+
+sdl2 do grafiki
+
+hexant
