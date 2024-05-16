@@ -1,0 +1,82 @@
+[
+ {
+  "date": "2020-08-28",
+  "country": "USA",
+  "injury": "No injury, kayak damaged",
+  "fatal_y_n": "N",
+  "type": "Unprovoked",
+  "activity": "Kayak fishing"
+ },
+ {
+  "date": "2003-07-05",
+  "country": "USA",
+  "injury": "Left foot bitten",
+  "fatal_y_n": "N",
+  "type": "Unprovoked",
+  "activity": "Surfing"
+ },
+ {
+  "date": "1962-07-19",
+  "country": "USA",
+  "injury": "2 lacerations on left hand by hooked shark, PROVOKED INCIDENT",
+  "fatal_y_n": "N",
+  "type": "Provoked",
+  "activity": "Fishing for albacore"
+ },
+ {
+  "date": "1885-03-28",
+  "country": "SOUTH AFRICA",
+  "injury": "No injury to occupant, rammed oar in shark's mouth and it bit the oar",
+  "fatal_y_n": "N",
+  "type": "Unprovoked",
+  "activity": "Fishing"
+ },
+ {
+  "date": "1930-01-16",
+  "country": "SOUTH AFRICA",
+  "injury": "Torso & arm bitten",
+  "fatal_y_n": "N",
+  "type": "Unprovoked",
+  "activity": "Swimming"
+ },
+ {
+  "date": "1978-01-06",
+  "country": "SOUTH AFRICA",
+  "injury": "Human head recovered from 3 m [10'] tiger shark\u2019s gut, probable drowning / scavenging",
+  "fatal_y_n": "UNKNOWN",
+  "type": "Invalid",
+  "activity": null
+ },
+ {
+  "date": "1964-07-15",
+  "country": "USA",
+  "injury": "No injury, no attack; sharks ate their food tied to a line over the side of the raft",
+  "fatal_y_n": "UNKNOWN",
+  "type": "Invalid",
+  "activity": "Yacht Gooney Bird foundered, 4 survivors on raft"
+ },
+ {
+  "date": "2018-07-09",
+  "country": "BAHAMAS",
+  "injury": "Minor injury to wrist",
+  "fatal_y_n": "N",
+  "type": "Unprovoked",
+  "activity": "Floating"
+ },
+ {
+  "date": "2020-12-06",
+  "country": "AUSTRALIA",
+  "injury": "Non-life-threatening injuries to buttock and thigh",
+  "fatal_y_n": "N",
+  "type": "Unprovoked",
+  "activity": "Surfing"
+ },
+ {
+  "date": "2012-10-10",
+  "country": "USA",
+  "injury": "No ijnury to boardrider, shark struck board breaking the mast",
+  "fatal_y_n": "N",
+  "type": "Unprovoked",
+  "activity": "Windsurfing"
+ }
+]
