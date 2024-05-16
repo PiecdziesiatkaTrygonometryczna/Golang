@@ -1,15 +1,18 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
 	"math"
 	"math/rand"
+	"os"
+	"strconv"
 	"time"
 )
 
 const (
-	MAX_ILOSC_ITERACJI = 100
-	ILOSC_PROB         = 10000
+	MAX_ILOSC_ITERACJI = 10000
+	ILOSC_PROB         = 1000
 )
 
 func pitagoras(a, b float64) float64 {
@@ -48,5 +51,28 @@ func main() {
 	elapsed := time.Since(start)
 	fmt.Printf("Czas wykonania: %s\n", elapsed)
 
-	fmt.Println(srednie)
+	file, err := os.Create("srednie.txt")
+	if err != nil {
+		fmt.Println("Błąd podczas tworzenia pliku:", err)
+		return
+	}
+	defer file.Close()
+
+	writer := bufio.NewWriter(file)
+	for _, srednia := range srednie {
+		sredniaStr := strconv.FormatFloat(srednia, 'f', -1, 64)
+		_, err := writer.WriteString(sredniaStr + "\n")
+		if err != nil {
+			fmt.Println("Błąd podczas zapisywania danych do pliku:", err)
+			return
+		}
+	}
+
+	err = writer.Flush()
+	if err != nil {
+		fmt.Println("Błąd podczas wypychania danych do pliku:", err)
+		return
+	}
+
+	fmt.Println("Średnie zostały zapisane do pliku.")
 }
