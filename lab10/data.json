@@ -1,82 +1,82 @@
 [
  {
-  "date": "2020-08-28",
+  "activity": "Free diving",
   "country": "USA",
-  "injury": "No injury, kayak damaged",
+  "date": "1971-01-01",
   "fatal_y_n": "N",
-  "type": "Unprovoked",
-  "activity": "Kayak fishing"
+  "injury": "Minor injury, arc of tooth impressions in wetsuit",
+  "type": "Unprovoked"
  },
  {
-  "date": "2003-07-05",
+  "activity": "",
   "country": "USA",
-  "injury": "Left foot bitten",
+  "date": "2008-07-05",
   "fatal_y_n": "N",
-  "type": "Unprovoked",
-  "activity": "Surfing"
+  "injury": "Lacerations to right foot",
+  "type": "Unprovoked"
  },
  {
-  "date": "1962-07-19",
+  "activity": "Bathing",
+  "country": "INDIA",
+  "date": "1870-05-18",
+  "fatal_y_n": "N",
+  "injury": "4 irregular lacerated wounds on right arm",
+  "type": "Unprovoked"
+ },
+ {
+  "activity": "Surfing",
+  "country": "VENEZUELA",
+  "date": "2005-03-25",
+  "fatal_y_n": "N",
+  "injury": "Right leg bitten",
+  "type": "Unprovoked"
+ },
+ {
+  "activity": "Spearfishing",
   "country": "USA",
-  "injury": "2 lacerations on left hand by hooked shark, PROVOKED INCIDENT",
+  "date": "1967-06-13",
   "fatal_y_n": "N",
-  "type": "Provoked",
-  "activity": "Fishing for albacore"
+  "injury": "After shark was speared \u0026 hit on head, it bit the diver’s foot  PROVOKED INCIDENT",
+  "type": "Provoked"
  },
  {
-  "date": "1885-03-28",
-  "country": "SOUTH AFRICA",
-  "injury": "No injury to occupant, rammed oar in shark's mouth and it bit the oar",
-  "fatal_y_n": "N",
-  "type": "Unprovoked",
-  "activity": "Fishing"
- },
- {
-  "date": "1930-01-16",
-  "country": "SOUTH AFRICA",
-  "injury": "Torso & arm bitten",
-  "fatal_y_n": "N",
-  "type": "Unprovoked",
-  "activity": "Swimming"
- },
- {
-  "date": "1978-01-06",
-  "country": "SOUTH AFRICA",
-  "injury": "Human head recovered from 3 m [10'] tiger shark\u2019s gut, probable drowning / scavenging",
-  "fatal_y_n": "UNKNOWN",
-  "type": "Invalid",
-  "activity": null
- },
- {
-  "date": "1964-07-15",
-  "country": "USA",
-  "injury": "No injury, no attack; sharks ate their food tied to a line over the side of the raft",
-  "fatal_y_n": "UNKNOWN",
-  "type": "Invalid",
-  "activity": "Yacht Gooney Bird foundered, 4 survivors on raft"
- },
- {
-  "date": "2018-07-09",
-  "country": "BAHAMAS",
-  "injury": "Minor injury to wrist",
-  "fatal_y_n": "N",
-  "type": "Unprovoked",
-  "activity": "Floating"
- },
- {
-  "date": "2020-12-06",
+  "activity": "Exercising his dog in the shallows",
   "country": "AUSTRALIA",
-  "injury": "Non-life-threatening injuries to buttock and thigh",
+  "date": "1981-02-16",
   "fatal_y_n": "N",
-  "type": "Unprovoked",
-  "activity": "Surfing"
+  "injury": "Puncture wounds to foot",
+  "type": "Unprovoked"
  },
  {
-  "date": "2012-10-10",
+  "activity": "Spearfishing",
   "country": "USA",
-  "injury": "No ijnury to boardrider, shark struck board breaking the mast",
+  "date": "2005-02-22",
   "fatal_y_n": "N",
-  "type": "Unprovoked",
-  "activity": "Windsurfing"
+  "injury": "Speared shark bit his chest PROVOKED INCIDENT",
+  "type": "Provoked"
+ },
+ {
+  "activity": "Bathing",
+  "country": "USA",
+  "date": "1870-07-27",
+  "fatal_y_n": "N",
+  "injury": "Foot bitten \u0026 toe severed",
+  "type": "Unprovoked"
+ },
+ {
+  "activity": "Wading, fishing for flounder",
+  "country": "AUSTRALIA",
+  "date": "1960-02-29",
+  "fatal_y_n": "N",
+  "injury": "No injury, Robertson knocked over \u0026 Hasler brushed by a shark",
+  "type": "Unprovoked"
+ },
+ {
+  "activity": "Fishing",
+  "country": "CROATIA",
+  "date": "1902-08-24",
+  "fatal_y_n": "N",
+  "injury": "No injury to occupants, shark grabbed anchor rope \u0026 towed boat",
+  "type": "Watercraft"
  }
 ]
