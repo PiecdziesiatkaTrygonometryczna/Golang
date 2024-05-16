@@ -12,7 +12,7 @@ import (
 
 const (
 	MAX_ILOSC_ITERACJI = 10000
-	ILOSC_PROB         = 1000
+	ILOSC_PROB         = 100
 )
 
 func pitagoras(a, b float64) float64 {
