@@ -9,7 +9,7 @@ import (
 )
 
 const (
-	MAX_ILOSC_ITERACJI = 100
+	MAX_ILOSC_ITERACJI = 1000
 	ILOSC_PROB         = 1000
 )
 
@@ -22,7 +22,7 @@ func avg(arr []float64) float64 {
 	for _, v := range arr {
 		sum += v
 	}
-	// return sum/float64(len(arr))
+	return sum/float64(len(arr))
 	return math.Round(sum/float64(len(arr))*100) / 100
 }
 
@@ -52,7 +52,7 @@ func main() {
 
 	file, _ := os.Create("srednie.txt")
 	for _, srednia := range srednie {
-		file.WriteString(fmt.Sprintf("%.2f\n", srednia))
+		file.WriteString(fmt.Sprintf("%f\n", srednia))
 	}
 	file.Close()
 

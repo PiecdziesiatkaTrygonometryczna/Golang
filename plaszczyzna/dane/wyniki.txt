@@ -1,0 +1,40 @@
+PS D:\code\Golang\plaszczyzna> go run .\plaszczyzna_optimised.go
+Czas wykonania: 329.2778ms					10_000 iteracji po 1000 prob
+Średnie zostały zapisane do pliku srednie.csv.
+PS D:\code\Golang\plaszczyzna> go run .\plaszczyzna_optimised.go
+Czas wykonania: 3.4666684s					100_000 iteracji po 1000 prob
+Średnie zostały zapisane do pliku srednie.csv.
+PS D:\code\Golang\plaszczyzna> go run .\plaszczyzna_optimised.go
+Czas wykonania: 1m14.7008562s					1_000_000 iteracji po 1000 prob
+Średnie zostały zapisane do pliku srednie.csv.
+PS D:\code\Golang\plaszczyzna>
+
+
+	
+PS D:\code\Golang\plaszczyzna> go run .\plaszczyzna_optimised.go
+Czas wykonania: 35.5039ms					1000 po 1000
+Średnie zostały zapisane do pliku srednie.csv.
+PS D:\code\Golang\plaszczyzna> go run .\plaszczyzna.go
+Czas wykonania: 11.6296172s					1000 po 1000
+Średnie zostały zapisane do pliku srednie.txt.
+PS D:\code\Golang\plaszczyzna>					327.5 razy szybciej, ale wyniki są wtedy zależne od poprzednich iteracji
+
+
+
+
+go vs python
+PS D:\code\Golang\plaszczyzna> python3 .\plaszczyzna.py // 100 iteracji po 1000 prob // 1000x1000 to 400 sekund
+Czas wykonania: 2.9545481204986572
+PS D:\code\Golang\plaszczyzna> go run plaszczyzna.go
+Czas wykonania: 116.1843ms
+Średnie zostały zapisane do pliku srednie.txt.
+PS D:\code\Golang\plaszczyzna>
+
+PS D:\code\Golang\plaszczyzna> python3 .\plaszczyzna_optimised.py	10_000 iteracji po 1000 prob
+Czas wykonania: 10.37 sekund
+Średnie zostały zapisane do pliku srednie.csv.
+PS D:\code\Golang\plaszczyzna> go run .\plaszczyzna_optimised.go
+Czas wykonania: 372.091ms
+Średnie zostały zapisane do pliku srednie.csv.
+PS D:\code\Golang\plaszczyzna>
+
