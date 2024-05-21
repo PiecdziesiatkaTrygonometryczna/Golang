@@ -9,7 +9,7 @@ import (
 )
 
 const (
-    MAX_ILOSC_ITERACJI = 100000
+    MAX_ILOSC_ITERACJI = 10000
     ILOSC_PROB         = 1000
 )
 
@@ -22,8 +22,7 @@ func avg(arr []float64) float64 {
     for _, v := range arr {
         sum += v
     }
-	return sum/float64(len(arr))
-    // return math.Round(sum/float64(len(arr))*100) / 100
+    return sum / float64(len(arr))
 }
 
 func main() {
@@ -67,11 +66,11 @@ func main() {
 
     fmt.Printf("Czas wykonania: %s\n", time.Since(start))
 
-    file, _ := os.Create("srednie.txt")
-    for _, srednia := range srednie {
-        file.WriteString(fmt.Sprintf("%f\n", srednia))
+    file, _ := os.Create("srednie.csv")
+    for i, srednia := range srednie {
+        file.WriteString(fmt.Sprintf("%d,%f\n", i+1, srednia))
     }
-    file.Close()
+	file.Close()
 
-    fmt.Println("Średnie zostały zapisane do pliku srednie.txt.")
+    fmt.Println("Średnie zostały zapisane do pliku srednie.csv.")
 }

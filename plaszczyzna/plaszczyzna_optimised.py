@@ -1,55 +1,54 @@
-import random
 import math
+import random
 import time
+import csv
 
-def random_walk(steps):
-    x, y = 0, 0
-    for _ in range(steps):
-        direction = random.choice(['left', 'right', 'up', 'down'])
-        if direction == 'left':
-            x -= 1
-        elif direction == 'right':
-            x += 1
-        elif direction == 'up':
-            y += 1
-        elif direction == 'down':
-            y -= 1
-    distance = math.sqrt(x**2 + y**2)
-    return distance
+MAX_ILOSC_ITERACJI = 10_000
+ILOSC_PROB = 1_000
 
-def average_distance(steps, trials):
-    distances = []
-    for _ in range(trials):
-        x, y = 0, 0
-        current_distance = 0
-        for _ in range(steps):
-            direction = random.choice(['left', 'right', 'up', 'down'])
-            if direction == 'left':
-                x -= 1
-            elif direction == 'right':
-                x += 1
-            elif direction == 'up':
-                y += 1
-            elif direction == 'down':
-                y -= 1
-            current_distance = math.sqrt(x**2 + y**2)
-            distances.append(current_distance)
-    avg_distances = []
-    for i in range(steps):
-        avg_distance = sum(distances[i::steps]) / trials
-        avg_distances.append(avg_distance)
-    return avg_distances
+def pitagoras(a, b):
+    return math.sqrt(a**2 + b**2)
 
-trials = 10000
-start_time = time.time()
-results = average_distance(10000, trials)
-end_time = time.time()
-elapsed_time = end_time - start_time
-print("Czas wykonania:", elapsed_time)
+def avg(arr):
+    return sum(arr) / len(arr)
 
-# Zapis wyników do pliku
-with open("dane/average_distances.csv", "w") as file:
-    for steps, avg_dist in enumerate(results, start=1):
-        file.write(f"{steps},{avg_dist}\n")
+def main():
+    srednie = []
+    punkty = []
+    odleglosci = [[] for _ in range(ILOSC_PROB)]
 
-print("Wyniki zapisano do pliku 'average_distances.csv'")
+    start = time.time()
+
+    for i in range(1, MAX_ILOSC_ITERACJI + 1):
+        if i == 1:
+            punkty = [[0, 0] for _ in range(ILOSC_PROB)]
+            for j in range(ILOSC_PROB):
+                for k in range(i):
+                    if random.randint(0, 1) == 0:
+                        punkty[j][0] += random.randint(0, 1) * 2 - 1
+                    else:
+                        punkty[j][1] += random.randint(0, 1) * 2 - 1
+                odleglosci[j].append(pitagoras(punkty[j][0], punkty[j][1]))
+        else:
+            for j in range(ILOSC_PROB):
+                if random.randint(0, 1) == 0:
+                    punkty[j][0] += random.randint(0, 1) * 2 - 1
+                else:
+                    punkty[j][1] += random.randint(0, 1) * 2 - 1
+                odleglosci[j].append(pitagoras(punkty[j][0], punkty[j][1]))
+
+        suma = sum(odleglosci[j][i-1] for j in range(ILOSC_PROB))
+        srednie.append(suma / ILOSC_PROB)
+
+    print(f"Czas wykonania: {time.time() - start:.2f} sekund")
+
+    with open('srednie.csv', 'w', newline='') as file:
+        writer = csv.writer(file)
+        writer.writerow(['n', 'wynik'])
+        for i, srednia in enumerate(srednie):
+            writer.writerow([i + 1, srednia])
+
+    print("Średnie zostały zapisane do pliku srednie.csv.")
+
+if __name__ == "__main__":
+    main()

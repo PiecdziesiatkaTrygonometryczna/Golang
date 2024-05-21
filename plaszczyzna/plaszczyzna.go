@@ -9,7 +9,7 @@ import (
 )
 
 const (
-	MAX_ILOSC_ITERACJI = 1000
+	MAX_ILOSC_ITERACJI = 100
 	ILOSC_PROB         = 1000
 )
 

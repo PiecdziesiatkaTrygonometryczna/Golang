@@ -2,10 +2,9 @@ import random
 import math
 import time
 
-MAX_ILOSC_ITERACJI = 1000
+MAX_ILOSC_ITERACJI = 100
 srednie = []
 ILOSC_PROB = 1000
-
 def pitagoras(a, b):
     return math.sqrt(pow(a, 2) + pow(b, 2))
 

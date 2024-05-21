@@ -3,7 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy.optimize import curve_fit
 
-data = pd.read_csv('dane/average_distances.csv', header=None)
+data = pd.read_csv('dane/srednie2.csv', header=None)
 x = data[0].values
 y = data[1].values
 
