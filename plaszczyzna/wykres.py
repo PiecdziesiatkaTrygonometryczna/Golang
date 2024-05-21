@@ -4,7 +4,7 @@ import csv
 # Wczytaj dane z pliku CSV
 steps = []
 avg_distances = []
-with open("average_distances.csv", "r") as file:
+with open("dane/average_distances.csv", "r") as file:
     reader = csv.reader(file)
     for row in reader:
         steps.append(int(row[0]))

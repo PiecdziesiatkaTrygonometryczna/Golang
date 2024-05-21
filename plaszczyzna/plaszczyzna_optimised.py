@@ -48,7 +48,7 @@ elapsed_time = end_time - start_time
 print("Czas wykonania:", elapsed_time)
 
 # Zapis wyników do pliku
-with open("average_distances.csv", "w") as file:
+with open("dane/average_distances.csv", "w") as file:
     for steps, avg_dist in enumerate(results, start=1):
         file.write(f"{steps},{avg_dist}\n")
 

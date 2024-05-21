@@ -1,43 +1,77 @@
 package main
 
 import (
-	"fmt"
-	"math"
-	"math/rand"
-	"time"
+    "fmt"
+    "math"
+    "math/rand"
+    "os"
+    "time"
 )
 
 const (
-	MAX_ILOSC_ITERACJI = 100
-	ILOSC_PROB         = 10000
+    MAX_ILOSC_ITERACJI = 100000
+    ILOSC_PROB         = 1000
 )
 
 func pitagoras(a, b float64) float64 {
-	return math.Hypot(a, b) // Użyj math.Hypot do obliczenia długości wektora
+    return math.Sqrt(a*a + b*b)
+}
+
+func avg(arr []float64) float64 {
+    var sum float64
+    for _, v := range arr {
+        sum += v
+    }
+	return sum/float64(len(arr))
+    // return math.Round(sum/float64(len(arr))*100) / 100
 }
 
 func main() {
-	var srednie []float64
+    var srednie []float64
+    var punkty [][]int
+    odleglosci := make([][]float64, ILOSC_PROB)
 
-	start := time.Now()
+    start := time.Now()
 
-	for i := 1; i <= MAX_ILOSC_ITERACJI; i++ {
-		var suma float64 // Przechowuje sumę odległości zamiast tablicy
-		for licznik_prob := 0; licznik_prob < ILOSC_PROB; licznik_prob++ {
-			var odleglosc float64
-			for licznik_iteracji := 0; licznik_iteracji < i; licznik_iteracji++ {
-				// Generowanie punktu w dwóch wymiarach
-				x := float64(rand.Int31n(int32(i*2))) - float64(i)
-				y := float64(rand.Int31n(int32(i*2))) - float64(i)
-				odleglosc += pitagoras(x, y)
-			}
-			suma += odleglosc / float64(i) // Dodaj odległość do sumy i oblicz średnią w locie
-		}
-		srednie = append(srednie, suma/float64(ILOSC_PROB)) // Oblicz średnią na podstawie sumy i liczby prób
-	}
+    for i := 1; i <= MAX_ILOSC_ITERACJI; i++ {
+        if i == 1 {
+            punkty = make([][]int, ILOSC_PROB)
+            for j := 0; j < ILOSC_PROB; j++ {
+                punkty[j] = []int{0, 0}
+                for k := 0; k < i; k++ {
+                    if rand.Intn(2) == 0 {
+                        punkty[j][0] += rand.Intn(2)*2 - 1
+                    } else {
+                        punkty[j][1] += rand.Intn(2)*2 - 1
+                    }
+                }
+                odleglosci[j] = []float64{pitagoras(float64(punkty[j][0]), float64(punkty[j][1]))}
+            }
+        } else {
+            for j := 0; j < ILOSC_PROB; j++ {
+                if rand.Intn(2) == 0 {
+                    punkty[j][0] += rand.Intn(2)*2 - 1
+                } else {
+                    punkty[j][1] += rand.Intn(2)*2 - 1
+                }
+                odleglosci[j] = append(odleglosci[j], pitagoras(float64(punkty[j][0]), float64(punkty[j][1])))
+            }
+        }
 
-	elapsed := time.Since(start)
-	fmt.Printf("Czas wykonania: %s\n", elapsed)
+        var suma float64
+        for j := 0; j < ILOSC_PROB; j++ {
+            suma += odleglosci[j][i-1]
+        }
+        srednie = append(srednie, suma/float64(ILOSC_PROB))
+    }
 
-	fmt.Println(srednie)
+    fmt.Printf("Czas wykonania: %s\n", time.Since(start))
+
+    file, _ := os.Create("srednie.txt")
+    for _, srednia := range srednie {
+        file.WriteString(fmt.Sprintf("%f\n", srednia))
+    }
+    file.Close()
+
+    fmt.Println("Średnie zostały zapisane do pliku srednie.txt.")
 }
