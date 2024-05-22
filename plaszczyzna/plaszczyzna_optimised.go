@@ -9,8 +9,8 @@ import (
 )
 
 const (
-    MAX_ILOSC_ITERACJI = 10000
-    ILOSC_PROB         = 1000
+    MAX_ILOSC_KROKOW = 10
+    ILOSC_SYMULACJI = 10000
 )
 
 func pitagoras(a, b float64) float64 {
@@ -27,42 +27,26 @@ func avg(arr []float64) float64 {
 
 func main() {
     var srednie []float64
-    var punkty [][]int
-    odleglosci := make([][]float64, ILOSC_PROB)
+    var punkty = make([][]int, ILOSC_SYMULACJI)
+
+    for i := 0 range punkty {
+        punkty[i] = []int{0, 0}
+    }
 
     start := time.Now()
 
-    for i := 1; i <= MAX_ILOSC_ITERACJI; i++ {
-        if i == 1 {
-            punkty = make([][]int, ILOSC_PROB)
-            for j := 0; j < ILOSC_PROB; j++ {
-                punkty[j] = []int{0, 0}
-                for k := 0; k < i; k++ {
-                    if rand.Intn(2) == 0 {
-                        punkty[j][0] += rand.Intn(2)*2 - 1
-                    } else {
-                        punkty[j][1] += rand.Intn(2)*2 - 1
-                    }
-                }
-                odleglosci[j] = []float64{pitagoras(float64(punkty[j][0]), float64(punkty[j][1]))}
-            }
-        } else {
-            for j := 0; j < ILOSC_PROB; j++ {
+    for i := 1; i <= MAX_ILOSC_KROKOW; i++ {
+            var suma float64
+            for j := 0; j < ILOSC_SYMULACJI; j++ {
                 if rand.Intn(2) == 0 {
                     punkty[j][0] += rand.Intn(2)*2 - 1
                 } else {
                     punkty[j][1] += rand.Intn(2)*2 - 1
                 }
-                odleglosci[j] = append(odleglosci[j], pitagoras(float64(punkty[j][0]), float64(punkty[j][1])))
+                suma += pitagoras(float64(punkty[j][0]), float64(punkty[j][1]))
             }
-        }
-
-        var suma float64
-        for j := 0; j < ILOSC_PROB; j++ {
-            suma += odleglosci[j][i-1]
-        }
-        srednie = append(srednie, suma/float64(ILOSC_PROB))
-    }
+        srednie = append(srednie, suma/float64(ILOSC_SYMULACJI))
+    }   
 
     fmt.Printf("Czas wykonania: %s\n", time.Since(start))
 

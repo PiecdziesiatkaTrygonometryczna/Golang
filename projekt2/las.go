@@ -103,7 +103,6 @@ func calculateBurnedPercentage(arr [][]string) float64 {
 }
 
 func main() {
-	rand.Seed(time.Now().UnixNano())
 	var n = 10
 	var numTrees = 50
 	arr := make([][]string, n)
