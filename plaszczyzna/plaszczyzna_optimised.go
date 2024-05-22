@@ -9,8 +9,8 @@ import (
 )
 
 const (
-    MAX_ILOSC_KROKOW = 10
-    ILOSC_SYMULACJI = 10000
+    MAX_ILOSC_KROKOW = 100_000
+    ILOSC_SYMULACJI = 1_000
 )
 
 func pitagoras(a, b int) float64 {
@@ -48,7 +48,7 @@ func main() {
 
     file, _ := os.Create("srednie.csv")
     for i, srednia := range srednie {
-        file.WriteString(fmt.Sprintf("%d,%f\n", i+1, srednia))
+        fmt.Fprintf(file, "%d,%f\n", i+1, srednia)
     }
 	file.Close()
 
