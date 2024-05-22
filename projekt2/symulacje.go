@@ -1,9 +1,13 @@
 package main
 
 import (
+	"encoding/csv"
 	"fmt"
 	"math/rand"
+	"os"
+	"strconv"
 )
+
 
 const (
 	empty = "\U000026AB"  // ⚫
@@ -101,10 +105,10 @@ func calculateBurnedPercentage(arr [][]string) float64 {
 	return (float64(burnedTrees) / float64(totalTrees)) * 100
 }
 
-func runExperiment(n, numTrees, trials int) map[int]float64 {
+func runExperiment(n, trials int) map[int]float64 {
 	results := make(map[int]float64)
 
-	for percent := 5; percent <= 95; percent += 5 {
+	for percent := 1; percent <= 99; percent += 1 {
 		totalBurnedPercentage := 0.0
 		for trial := 0; trial < trials; trial++ {
 			arr := generateForest(n, percent)
@@ -157,14 +161,21 @@ func generateLightningStrike(n int) (int, int) {
 }
 
 func main() {
-
 	n := 10
-	numTrees := 50 // procentowo
-	trials := 10000
+	trials := 1000
 
-	results := runExperiment(n, numTrees, trials)
+	results := runExperiment(n, trials)
+
+	file, _ := os.Create("results.csv")
+	defer file.Close()
+
+	writer := csv.NewWriter(file)
+	defer writer.Flush()
 
 	for percent, avgBurnedPercentage := range results {
-		fmt.Printf("Zalesienie: %d%%, Średni procent spalonego lasu: %.2f%%\n", percent, avgBurnedPercentage)
+		row := []string{strconv.Itoa(percent), fmt.Sprintf("%.2f", avgBurnedPercentage)}
+		writer.Write(row)
 	}
+
+	fmt.Println("Wyniki zostały zapisane do pliku results.csv")
 }
