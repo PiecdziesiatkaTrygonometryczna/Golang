@@ -13,8 +13,8 @@ const (
     ILOSC_SYMULACJI = 10000
 )
 
-func pitagoras(a, b float64) float64 {
-    return math.Sqrt(a*a + b*b)
+func pitagoras(a, b int) float64 {
+    return math.Sqrt(float64(a*a + b*b))
 }
 
 func avg(arr []float64) float64 {
@@ -27,11 +27,7 @@ func avg(arr []float64) float64 {
 
 func main() {
     var srednie []float64
-    var punkty = make([][]int, ILOSC_SYMULACJI)
-
-    for i := 0 range punkty {
-        punkty[i] = []int{0, 0}
-    }
+    punkty := make([][2]int, ILOSC_SYMULACJI)
 
     start := time.Now()
 
@@ -43,7 +39,7 @@ func main() {
                 } else {
                     punkty[j][1] += rand.Intn(2)*2 - 1
                 }
-                suma += pitagoras(float64(punkty[j][0]), float64(punkty[j][1]))
+                suma += pitagoras(punkty[j][0], punkty[j][1])
             }
         srednie = append(srednie, suma/float64(ILOSC_SYMULACJI))
     }   
