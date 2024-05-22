@@ -162,7 +162,7 @@ func generateLightningStrike(n int) (int, int) {
 
 func main() {
 	n := 10
-	trials := 1000
+	trials := 100000
 
 	results := runExperiment(n, trials)
 
