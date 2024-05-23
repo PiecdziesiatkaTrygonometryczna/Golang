@@ -9,8 +9,8 @@ import (
 )
 
 const (
-	MAX_ILOSC_ITERACJI = 1000
-	ILOSC_PROB         = 1000
+	MAX_ILOSC_KROKOW = 1000
+	ILOSC_SYMULACJI = 100
 )
 
 func pitagoras(a, b float64) float64 {
@@ -31,10 +31,10 @@ func main() {
 
 	start := time.Now()
 
-	for i := 1; i <= MAX_ILOSC_ITERACJI; i++ {
+	for i := 1; i <= MAX_ILOSC_KROKOW; i++ {
 		// var i = 26384
 		var odleglosci []float64
-		for j := 0; j < ILOSC_PROB; j++ {
+		for j := 0; j < ILOSC_SYMULACJI; j++ {
 			var punkt [2]int
 			for k := 0; k < i; k++ {
 				if rand.Intn(2) == 0 {

@@ -1,0 +1,2 @@
+curl -X POST -H "Content-Type: application/json" -d '{"body":"Treść posta"}' http://localhost:8080/posts
+curl -X POST http://localhost:8080/addPostsFromFile

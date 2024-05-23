@@ -8,7 +8,6 @@ import (
 	"time"
 )
 
-// SharkAttack represents the structure of a shark attack record
 type SharkAttack struct {
 	Date     string `json:"date"`
 	Country  string `json:"country"`
@@ -19,7 +18,6 @@ type SharkAttack struct {
 }
 
 func main() {
-	// Open and read the JSON file
 	file, err := os.Open("global-shark-attack.json")
 	if err != nil {
 		panic(err)
@@ -31,23 +29,19 @@ func main() {
 		panic(err)
 	}
 
-	// Unmarshal JSON data into a slice of SharkAttack structs
 	var attacks []SharkAttack
 	err = json.Unmarshal(data, &attacks)
 	if err != nil {
 		panic(err)
 	}
 
-	// Seed random number generator
 	rand.Seed(time.Now().UnixNano())
 
-	// Select 10 random records
 	selectedRecords := make([]SharkAttack, 10)
 	for i := 0; i < 10; i++ {
 		selectedRecords[i] = attacks[rand.Intn(len(attacks))]
 	}
 
-	// Prepare data for writing to JSON file
 	outputData := make([]map[string]string, 10)
 	for i, record := range selectedRecords {
 		outputRecord := map[string]string{
@@ -61,13 +55,11 @@ func main() {
 		outputData[i] = outputRecord
 	}
 
-	// Marshal selected data to JSON
 	outputJSON, err := json.MarshalIndent(outputData, "", " ")
 	if err != nil {
 		panic(err)
 	}
 
-	// Write selected data to a new JSON file
 	err = ioutil.WriteFile("data.json", outputJSON, 0644)
 	if err != nil {
 		panic(err)

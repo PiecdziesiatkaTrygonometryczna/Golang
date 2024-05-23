@@ -9,7 +9,7 @@ import (
 )
 
 const (
-    MAX_ILOSC_KROKOW = 100_000
+    MAX_ILOSC_KROKOW = 1_000
     ILOSC_SYMULACJI = 1_000
 )
 

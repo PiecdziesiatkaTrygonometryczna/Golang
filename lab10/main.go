@@ -1,13 +1,14 @@
 package main
 
 import (
-	"encoding/json"
-	"fmt"
-	"io/ioutil"
-	"log"
-	"net/http"
-	"strconv"
-	"sync"
+    "encoding/json"
+    "fmt"
+    "io/ioutil"
+    "log"
+    "net/http"
+    "os"
+    "strconv"
+    "sync"
 )
 
 type Post struct {
@@ -24,6 +25,7 @@ var (
 func main() {
 	http.HandleFunc("/posts", postsHandler)
 	http.HandleFunc("/posts/", postHandler)
+	http.HandleFunc("/addPostsFromFile", addPostsfromFile)
 
 	fmt.Println("Server is running at http://localhost:8080")
 	log.Fatal(http.ListenAndServe(":8080", nil))
@@ -120,4 +122,38 @@ func handleDeletePost(w http.ResponseWriter, r *http.Request, id int) {
 
 	delete(posts, id)
 	w.WriteHeader(http.StatusOK)
+}
+
+func addPostsfromFile(w http.ResponseWriter, r *http.Request) {
+    data, err := os.ReadFile("data.json")
+    if err != nil {
+        http.Error(w, "Error reading shark attack data", http.StatusInternalServerError)
+        return
+    }
+
+    var sharkAttacks []map[string]interface{}
+    if err := json.Unmarshal(data, &sharkAttacks); err != nil {
+        http.Error(w, "Error parsing shark attack data", http.StatusBadRequest)
+        return
+    }
+
+    postsMu.Lock()
+    defer postsMu.Unlock()
+
+    for _, attack := range sharkAttacks {
+        body := fmt.Sprintf(
+            "Activity: %v\nCountry: %v\nDate: %v\nFatal: %v\nInjury: %v\nType: %v",
+            attack["activity"], attack["country"], attack["date"], attack["fatal_y_n"], attack["injury"], attack["type"],
+        )
+
+        p := Post{
+            ID:   nextID,
+            Body: body,
+        }
+        nextID++
+        posts[p.ID] = p
+    }
+
+    w.WriteHeader(http.StatusCreated)
+    fmt.Fprintln(w, "Dodano posty z pliku data.json")
 }
