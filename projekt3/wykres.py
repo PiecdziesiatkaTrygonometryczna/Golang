@@ -3,7 +3,7 @@ import csv
 
 steps = []
 avg_distances = []
-with open("srednie.csv", "r") as file:
+with open("../plaszczyzna3d/srednie.csv", "r") as file:
     reader = csv.reader(file)
     for row in reader:
         steps.append(int(row[0]))

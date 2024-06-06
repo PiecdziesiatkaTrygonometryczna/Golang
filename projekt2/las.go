@@ -103,8 +103,8 @@ func calculateBurnedPercentage(arr [][]string) float64 {
 }
 
 func main() {
-	var n = 65
-	var numTrees = 2100
+	var n = 40
+	var numTrees = 500
 	arr := make([][]string, n)
 	for i := range arr {
 		arr[i] = make([]string, n)
